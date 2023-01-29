@@ -28,6 +28,7 @@ public class Even {
             } else {
                 System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");
                 System.out.println("Let's try again, " + userName + "!");
+                break;
             }
             if (i == 2) {
                 in1.close();
