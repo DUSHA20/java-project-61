@@ -11,45 +11,37 @@ public class Calc {
             char[] symbols = new char[] {'*','-','+'};
             int symbol = (int)Math.floor(Math.random() * symbols.length);
             char CurrentSymbol = symbols[symbol];
-            String expression = number1 + " " + CurrentSymbol + " " + number2;
-            Engine.Answering(expression);
+            String mathematicalExpression1 = number1 + " " + CurrentSymbol + " " + number2;
+            Engine.Answering(mathematicalExpression1);
 
             if (CurrentSymbol == '*') {
+                int expressionWithMultiplication = number1 * number2;
                 if (Integer.toString(number1 * number2).equals(Engine.answer)) {
                     System.out.println("Correct!");
                     countOfVictories++;
                 } else {
-                    // можно сделать метод "реакция на неправильный ответ", где сделать переменную - сообщение с переносом теста на другую строку
-                    System.out.println("Question: " + number1 + CurrentSymbol + number2);
-                    System.out.println("Your answer: " + Engine.answer);
-                    System.out.println("'" + Engine.answer + "'" + "is wrong answer ;(. Correct answer was" + "'" + (number1 * number2) + "'");
-                    System.out.println("Let's try again, " + Engine.userName + "!");
+                    Engine.ElseOutput(mathematicalExpression1, expressionWithMultiplication);
                     break;
                 }
             }
             else if (CurrentSymbol == '-') {
+                int expressionWithMines = number1 - number2;
                 if (Integer.toString(number1 - number2).equals(Engine.answer)) {
                     System.out.println("Correct!");
                     countOfVictories++;
                 } else {
-                    System.out.println("Question: " + number1 + CurrentSymbol + number2);
-                    System.out.println("Your answer: " + Engine.answer);
-                    System.out.println("'" + Engine.answer + "'" + "is wrong answer ;(. Correct answer was" + "'" + (number1 - number2) + "'");
-                    System.out.println("Let's try again, " + Engine.userName + "!");
+                    Engine.ElseOutput(mathematicalExpression1, expressionWithMines);
                     break;
 
                 }
             } else {
+                int expressionWithPlus = number1 + number2;
                 if (Integer.toString(number1 + number2).equals(Engine.answer)) {
                     System.out.println("Correct!");
                     countOfVictories++;
                 } else {
-                    System.out.println("Question: " + number1 + CurrentSymbol + number2);
-                    System.out.println("Your answer: " + Engine.answer);
-                    System.out.println("'" + Engine.answer + "'" + "is wrong answer ;(. Correct answer was" + "'" + (number1 + number2) + "'");
-                    System.out.println("Let's try again, " + Engine.userName + "!");
+                    Engine.ElseOutput(mathematicalExpression1, expressionWithPlus);
                     break;
-
                 }
             }
         }

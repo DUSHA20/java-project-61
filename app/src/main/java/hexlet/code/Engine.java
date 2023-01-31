@@ -15,7 +15,6 @@ public class Engine {
         System.out.println("Hello, " + Engine.userName + "!");
         System.out.println(message);
     }
-    // можно ли сделать параметр, который не обязательно передовать в метод?
     public static void Answering(String expression) {
         Scanner in1 = new Scanner(System.in);
         System.out.println("Question: " + expression);
@@ -27,5 +26,11 @@ public class Engine {
         if (countOfVictories == CheckNumber) {
             System.out.println("Congratulations, " + Engine.userName + "!");
         }
+    }
+    public static void ElseOutput(String mathematicalExpression1, int mathematicalExpression2) {
+        System.out.println("Question: " + "'" + mathematicalExpression1 + "'");
+        System.out.println("Your answer: " + Engine.answer);
+        System.out.println("'" + Engine.answer + "'" + " " + "is wrong answer ;(. Correct answer was" + " " + "'" + mathematicalExpression2 + "'");
+        System.out.println("Let's try again, " + Engine.userName + "!");
     }
 }
