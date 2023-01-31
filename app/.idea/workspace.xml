@@ -70,7 +70,7 @@
       <command value="gradle :run" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.app [installDist]">
+  <component name="RunManager" selected="Gradle.app [:run]">
     <configuration name="app [:run]" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
