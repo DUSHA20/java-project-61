@@ -10,6 +10,7 @@ public class App {
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
         System.out.println("3 - Calc");
+        System.out.println("4 - GCD");
         System.out.println("0 - Exit");
         int num = in.nextInt();
         System.out.println("Your choice: " + num);
@@ -27,8 +28,13 @@ public class App {
                 break;
             case 2:
                 Even.ParityCheck();
+                break;
             case 3:
                 Calc.Calculations();
+                break;
+            case 4:
+                GCD.FindingNode();
+                break;
         }
         in.close();
     }
