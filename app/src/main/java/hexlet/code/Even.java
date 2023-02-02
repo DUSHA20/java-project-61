@@ -17,6 +17,11 @@ public class Even {
             else if (number % 2 != 0 && Engine.answer.equals("no")) {
                 System.out.println("Correct!");
                 countOfVictories++;
+            }
+            else if (number % 2 == 0 && Engine.answer.equals("no")) {
+                System.out.println("'no' is wrong answer ;(. Correct answer was 'yes'.");
+                System.out.println("Let's try again, " + Engine.userName + "!");
+                break;
             } else {
                 System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");
                 System.out.println("Let's try again, " + Engine.userName + "!");
