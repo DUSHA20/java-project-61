@@ -4,7 +4,10 @@ import hexlet.code.games.Calc;
 import hexlet.code.games.GCD;
 import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
+import hexlet.code.Cli;
+
 import java.util.Scanner;
+
 
 public class App {
 
@@ -60,3 +63,4 @@ public class App {
         in.close();
     }
 }
+
