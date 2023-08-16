@@ -1,4 +1,9 @@
 package hexlet.code;
+import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 public class App {
@@ -14,34 +19,42 @@ public class App {
         System.out.println("5 - Progression");
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
-        int num = in.nextInt();
-        System.out.println("Your choice: " + num);
-        switch (num) {
-            case 0:
+
+        String choiceMessage = "Your choice: ";
+        int choice = in.nextInt();
+        System.out.println(choiceMessage + choice);
+
+        final String GREET = "1";
+        final String EVEN = "2";
+        final String CALC = "3";
+        final String GCD_GAME = "4";
+        final String PROGRESSION = "5";
+        final String PRIME = "6";
+        final String EXIT = "0";
+
+        switch (Integer.toString(choice)) {
+            case EXIT:
                 System.out.println("Bye!");
                 break;
-            case 1:
-                Scanner in_1 = new Scanner(System.in);
-                System.out.println("Welcome to the Brain Games!");
-                System.out.print("May I have your name? ");
-                String userName = in_1.next();
-                System.out.println("Hello, " + userName + "!");
-                in_1.close();
+            case GREET:
+                Cli.greetings();
                 break;
-            case 2:
-                Even.ParityCheck();
+            case EVEN:
+                Even.StartGameEven();
                 break;
-            case 3:
-                Calc.Calculations();
+            case CALC:
+                Calc.StartGameCalc();
                 break;
-            case 4:
-                GCD.FindingNode();
+            case GCD_GAME:
+                GCD.StartGameGCD();
                 break;
-            case 5:
-                Progression.FindProgression();
+            case PROGRESSION:
+                Progression.StartGameProgression();
                 break;
-            case 6:
-                Prime.FindPrime();
+            case PRIME:
+                Prime.StartGamePrime();
+                break;
+            default:
                 break;
         }
         in.close();
