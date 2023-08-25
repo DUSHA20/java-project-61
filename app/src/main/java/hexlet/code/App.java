@@ -4,16 +4,20 @@ import hexlet.code.games.Calc;
 import hexlet.code.games.GCD;
 import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
-import hexlet.code.Cli;
 
 import java.util.Scanner;
-
 
 public class App {
 
     public static void main(String[] args) {
-
         Scanner in = new Scanner(System.in);
+        printMenu();
+        int choice = getChoice(in);
+        processChoice(choice);
+        in.close();
+    }
+
+    private static void printMenu() {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
@@ -22,20 +26,23 @@ public class App {
         System.out.println("5 - Progression");
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
+    }
 
-        String choiceMessage = "Your choice: ";
-        int choice = in.nextInt();
-        System.out.println(choiceMessage + choice);
+    private static int getChoice(Scanner in) {
+        System.out.print("Your choice: ");
+        return in.nextInt();
+    }
 
-        final String GREET = "1";
-        final String EVEN = "2";
-        final String CALC = "3";
-        final String GCD_GAME = "4";
-        final String PROGRESSION = "5";
-        final String PRIME = "6";
-        final String EXIT = "0";
+    private static void processChoice(int choice) {
+        final int GREET = 1;
+        final int EVEN = 2;
+        final int CALC = 3;
+        final int GCD_GAME = 4;
+        final int PROGRESSION = 5;
+        final int PRIME = 6;
+        final int EXIT = 0;
 
-        switch (Integer.toString(choice)) {
+        switch (choice) {
             case EXIT:
                 System.out.println("Bye!");
                 break;
@@ -43,24 +50,23 @@ public class App {
                 Cli.greetings();
                 break;
             case EVEN:
-                Even.StartGameEven();
+                Even.startGameEven();
                 break;
             case CALC:
-                Calc.StartGameCalc();
+                Calc.startGameCalc();
                 break;
             case GCD_GAME:
-                GCD.StartGameGCD();
+                GCD.startGameGCD();
                 break;
             case PROGRESSION:
-                Progression.StartGameProgression();
+                Progression.startGameProgression();
                 break;
             case PRIME:
-                Prime.StartGamePrime();
+                Prime.startGamePrime();
                 break;
             default:
                 break;
         }
-        in.close();
     }
 }
 

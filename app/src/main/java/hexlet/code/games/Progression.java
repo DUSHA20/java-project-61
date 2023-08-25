@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Progression {
-    public static String[] FindProgression(int beginNumber, int step, int length, char randomOperation) {
+    public static String[] findProgression(int beginNumber, int step, int length, char randomOperation) {
 
         int[] sourceArray = new int[length];
         sourceArray[0] = beginNumber;
@@ -33,7 +33,7 @@ public class Progression {
         return String.join(" ", array);
     }
 
-    public static void StartGameProgression() {
+    public static void startGameProgression() {
         String conditions = "What number is missing in the progression?";
         int countOfRounds = 3;
         int countOFGameData = 2;
@@ -46,7 +46,7 @@ public class Progression {
             char[] symbols = new char[]{'-', '+'};
             int symbol = (int) Math.floor(Math.random() * symbols.length);
             char randomOperation = symbols[symbol];
-            String[] array = FindProgression(beginNumber, step, lengthOfProgression, randomOperation);
+            String[] array = findProgression(beginNumber, step, lengthOfProgression, randomOperation);
             int changedElement = Integer.parseInt(array[randomNumberOfIndex - 1]) + step;
             String stringСhangedElement = Integer.toString(changedElement);
 
@@ -54,6 +54,6 @@ public class Progression {
             gameData[i][1] = stringСhangedElement;
         }
 
-        Engine.StartTheGame(conditions, gameData);
+        Engine.startTheGame(conditions, gameData);
     }
 }

@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Even {
-    public static void StartGameEven() {
+    public static void startGameEven() {
         String conditions = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         int countOfRounds = 3;
         int countOFGameData = 2;
@@ -22,6 +22,6 @@ public class Even {
                 gameData[i][1] = "no";
             }
         }
-        Engine.StartTheGame(conditions, gameData);
+        Engine.startTheGame(conditions, gameData);
     }
 }

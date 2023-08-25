@@ -3,18 +3,26 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Calc {
-    public static String composeMathematicalExpression(char randomOperation, int randomnumber1, int randomnumber2) {
-        var resultOperation = 0;
-        if (randomOperation == '+') {
-            resultOperation = randomnumber1 + randomnumber2;
-        } else if (randomOperation == '-') {
-            resultOperation = randomnumber1 - randomnumber2;
-        } else if (randomOperation == '*') {
-            resultOperation = randomnumber1 * randomnumber2;
+    private static String composeMathematicalExpression(char randomOperation, int randomnumber1, int randomnumber2) {
+        int resultOperation = 0;
+
+        switch (randomOperation) {
+            case '+':
+                resultOperation = randomnumber1 + randomnumber2;
+                break;
+            case '-':
+                resultOperation = randomnumber1 - randomnumber2;
+                break;
+            case '*':
+                resultOperation = randomnumber1 * randomnumber2;
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid operation: " + randomOperation);
         }
+
         return Integer.toString(resultOperation);
     }
-    public static void StartGameCalc() {
+    public static void startGameCalc() {
         String conditions = "What is the result of the expression?";
         int countOfRounds = 3;
         int countOFGameData = 2;
@@ -30,6 +38,6 @@ public class Calc {
             gameData[i][0] = randomNumber1 + " " + randomOperation + " " + randomNumber2;
             gameData[i][1] = composeMathematicalExpression(randomOperation, randomNumber1, randomNumber2);
         }
-        Engine.StartTheGame(conditions, gameData);
+        Engine.startTheGame(conditions, gameData);
     }
 }

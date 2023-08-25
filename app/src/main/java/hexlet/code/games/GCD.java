@@ -3,23 +3,23 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class GCD {
-    public static String FindNode(int randomNumber1, int randomNumber2) {
-        int numberForChecking1 = randomNumber1;
-        int numberForChecking2 = randomNumber2;
-        int countOfRounds = 3;
-        for (int i = 0; i < countOfRounds; i++) {
-            while (numberForChecking1 != numberForChecking2) {
-                if (numberForChecking1 > numberForChecking2) {
-                    numberForChecking1 = numberForChecking1 - numberForChecking2;
-                } else {
-                    numberForChecking2 = numberForChecking2 - numberForChecking1;
-                }
+    public static int calculateGCD(int a, int b) {
+        while (a != b) {
+            if (a > b) {
+                a = a - b;
+            } else {
+                b = b - a;
             }
         }
-        int nod = numberForChecking1;
-        return Integer.toString(nod);
+        return a;
     }
-    public static void StartGameGCD() {
+
+    public static String findGCD(int randomNumber1, int randomNumber2) {
+        int gcd = calculateGCD(randomNumber1, randomNumber2);
+        return Integer.toString(gcd);
+    }
+
+    public static void startGameGCD() {
         String conditions = "Find the greatest common divisor of given numbers.";
         int countOfRounds = 3;
         int countOFGameData = 2;
@@ -31,9 +31,9 @@ public class GCD {
             int randomNumber2 = (int) (Math.random() * (20 - 1 + 1) + 1);
             String mathematicalExpression = randomNumber1 + " " + randomNumber2;
             gameData[i][0] = mathematicalExpression;
-            gameData[i][1] = FindNode(randomNumber1, randomNumber2);
+            gameData[i][1] = findGCD(randomNumber1, randomNumber2);
         }
-        Engine.StartTheGame(conditions, gameData);
+        Engine.startTheGame(conditions, gameData);
     }
 }
 
