@@ -11,6 +11,11 @@ run {
     standardInput = System.in
 }
 
+compileJava {
+    options.release.set(17)
+    options.encoding = 'UTF-8'
+}
+
 application {
     mainClass = 'hexlet.code.App'
 }
