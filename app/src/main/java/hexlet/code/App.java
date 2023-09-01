@@ -9,6 +9,14 @@ import java.util.Scanner;
 
 public class App {
 
+    private static final int GREET = 1;
+    private static final int EVEN = 2;
+    private static final int CALC = 3;
+    private static final int GCD_GAME = 4;
+    private static final int PROGRESSION = 5;
+    private static final int PRIME = 6;
+    private static final int EXIT = 0;
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         printMenu();
@@ -34,13 +42,6 @@ public class App {
     }
 
     private static void processChoice(int choice) {
-        final int GREET = 1;
-        final int EVEN = 2;
-        final int CALC = 3;
-        final int GCD_GAME = 4;
-        final int PROGRESSION = 5;
-        final int PRIME = 6;
-        final int EXIT = 0;
 
         switch (choice) {
             case EXIT:
