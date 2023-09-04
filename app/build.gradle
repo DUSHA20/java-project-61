@@ -12,7 +12,7 @@ run {
 }
 
 compileJava {
-    options.release.set(17)
+    options.release.set(20)
     options.encoding = 'UTF-8'
 }
 
