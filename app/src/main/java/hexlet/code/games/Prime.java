@@ -1,8 +1,12 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Prime {
+    private static final int MIN_NUMBER = 1;
+    private static final int MAX_NUMBER = 20;
+    private static final String CONDITIONS = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     public static boolean isPrime(int number) {
         if (number <= 1) {
             return false;
@@ -16,32 +20,17 @@ public class Prime {
 
         return true;
     }
-
-    public static String findPrimeNumber(int randomNumber) {
-        boolean isPrimeFound = false;
-
-        for (int i = 0; i < 3; i++) {
-            if (isPrime(randomNumber)) {
-                isPrimeFound = true;
-                break;
-            }
-        }
-
-        return isPrimeFound ? "yes" : "no";
-    }
-
     public static void startGamePrime() {
-        String conditions = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        int countOfRounds = 3;
-        int countOFGameData = 2;
-        String[][] gameData = new String[countOfRounds][countOFGameData];
+        int countOfRounds = Engine.getCountOfRounds();
+        int countOfGameData = Engine.getCountOfGameData();
+        String[][] gameData = new String[countOfRounds][countOfGameData];
 
         for (var i = 0; i < countOfRounds; i++) {
-            int randomNumber = (int) (Math.random() * (20 - 1 + 1) + 1);
+            int randomNumber = Utils.getRandomNumberInRange(MIN_NUMBER, MAX_NUMBER);
             String expression = Integer.toString(randomNumber);
             gameData[i][0] = expression;
-            gameData[i][1] = findPrimeNumber(randomNumber);
+            gameData[i][1] = isPrime(randomNumber) ? "yes" : "no";
         }
-        Engine.startTheGame(conditions, gameData);
+        Engine.startTheGame(CONDITIONS, gameData);
     }
 }

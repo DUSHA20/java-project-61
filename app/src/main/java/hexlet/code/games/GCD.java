@@ -1,8 +1,12 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class GCD {
+    private static final int MIN_NUMBER = 1;
+    private static final int MAX_NUMBER = 20;
+    private static final String CONDITIONS = "Find the greatest common divisor of given numbers.";
     public static int calculateGCD(int a, int b) {
         while (a != b) {
             if (a > b) {
@@ -20,20 +24,19 @@ public class GCD {
     }
 
     public static void startGameGCD() {
-        String conditions = "Find the greatest common divisor of given numbers.";
-        int countOfRounds = 3;
-        int countOFGameData = 2;
-        String[][] gameData = new String[countOfRounds][countOFGameData];
-        System.out.println(conditions);
+        int countOfRounds = Engine.getCountOfRounds();
+        int countOfGameData = Engine.getCountOfGameData();
+        String[][] gameData = new String[countOfRounds][countOfGameData];
+        System.out.println(CONDITIONS);
 
         for (var i = 0; i < countOfRounds; i++) {
-            int randomNumber1 = (int) (Math.random() * (20 - 1 + 1) + 1);
-            int randomNumber2 = (int) (Math.random() * (20 - 1 + 1) + 1);
+            int randomNumber1 = Utils.getRandomNumberInRange(MIN_NUMBER, MAX_NUMBER);
+            int randomNumber2 = Utils.getRandomNumberInRange(MIN_NUMBER, MAX_NUMBER);
             String mathematicalExpression = randomNumber1 + " " + randomNumber2;
             gameData[i][0] = mathematicalExpression;
             gameData[i][1] = findGCD(randomNumber1, randomNumber2);
         }
-        Engine.startTheGame(conditions, gameData);
+        Engine.startTheGame(CONDITIONS, gameData);
     }
 }
 
