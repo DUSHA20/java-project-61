@@ -1,5 +1,10 @@
 .DS_Store
 .idea/
 .git_test/
-build/ 
+build/
+
+.idea/
+app/.idea/
+app/.git_test/
+ 
 
