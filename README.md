@@ -27,6 +27,9 @@ To exit the application, simply enter `0` and press Enter.
 ## Have a great time playing!
 
 
+
+
+
 # Links to game recordings:
 [Links to first game (Even)](https://asciinema.org/a/gJFBIiNmg3m1gZQJ7mmphKq3r)
 -----
