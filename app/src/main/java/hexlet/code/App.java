@@ -10,14 +10,21 @@ import java.util.Scanner;
 public class App {
 
     private static final int GREET = 1;
+
     private static final int EVEN = 2;
+
     private static final int CALC = 3;
+
     private static final int GCD_GAME = 4;
+
     private static final int PROGRESSION = 5;
+
     private static final int PRIME = 6;
+
     private static final int EXIT = 0;
 
     public static void main(String[] args) {
+
         Scanner in = new Scanner(System.in);
         printMenu();
         int choice = getChoice(in);
@@ -26,6 +33,7 @@ public class App {
     }
 
     private static void printMenu() {
+
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
@@ -38,7 +46,10 @@ public class App {
 
     private static int getChoice(Scanner in) {
         System.out.print("Your choice: ");
-        return in.nextInt();
+        int choice = in.nextInt();
+        System.out.println();
+        System.out.println("Welcome to the Brain Games!");
+        return choice;
     }
 
     private static void processChoice(int choice) {
