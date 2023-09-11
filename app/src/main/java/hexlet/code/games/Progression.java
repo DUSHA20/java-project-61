@@ -4,7 +4,6 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Progression {
-    
     private static final int MIN_NUMBER_1 = 1;
 
     private static final int MIN_NUMBER_5 = 5;
@@ -64,7 +63,10 @@ public class Progression {
             int beginNumber = Utils.getRandomNumberInRange(MIN_NUMBER_1, MAX_NUMBER_1);
             int step = Utils.getRandomNumberInRange(MIN_NUMBER_1, MAX_NUMBER_8);
             int lengthOfProgression = Utils.getRandomNumberInRange(MIN_NUMBER_5, MAX_NUMBER_10);
-            int randomNumberOfIndex = Utils.getRandomNumberInRange(MIN_NUMBER_1, Math.min(MAX_NUMBER_9, lengthOfProgression - 1));
+            int randomNumberOfIndex = Utils.getRandomNumberInRange(
+                    MIN_NUMBER_1,
+                    Math.min(MAX_NUMBER_9, lengthOfProgression - 1)
+            );
 
             int[] progression = generateProgression(beginNumber, step, lengthOfProgression);
             String[] array = generateProgressionWithHiddenElement(progression, randomNumberOfIndex);
