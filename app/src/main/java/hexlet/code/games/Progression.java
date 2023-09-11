@@ -4,7 +4,7 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Progression {
-
+    
     private static final int MIN_NUMBER_1 = 1;
 
     private static final int MIN_NUMBER_5 = 5;
@@ -26,23 +26,13 @@ public class Progression {
         return symbols[randomIndex];
     }
 
-    public static int[] generateProgression(int beginNumber, int step, int length, char randomOperation) {
+    public static int[] generateProgression(int beginNumber, int step, int length) {
 
         int[] progression = new int[length];
         progression[0] = beginNumber;
 
         for (int i = 1; i < progression.length; i++) {
-
-            switch (randomOperation) {
-                case '-':
-                    progression[i] = progression[i - 1] - step;
-                    break;
-                case '+':
-                    progression[i] = progression[i - 1] + step;
-                    break;
-                default:
-                    break;
-            }
+            progression[i] = progression[i - 1] + step;
         }
 
         return progression;
@@ -53,7 +43,6 @@ public class Progression {
         String[] stringArray = new String[progression.length];
 
         for (int j = 0; j < stringArray.length; j++) {
-
             if (j == randomNumberOfIndex) {
                 stringArray[j] = "..";
             } else {
@@ -74,19 +63,12 @@ public class Progression {
 
             int beginNumber = Utils.getRandomNumberInRange(MIN_NUMBER_1, MAX_NUMBER_1);
             int step = Utils.getRandomNumberInRange(MIN_NUMBER_1, MAX_NUMBER_8);
-            int randomNumberOfIndex = Utils.getRandomNumberInRange(MIN_NUMBER_1, MAX_NUMBER_9);
             int lengthOfProgression = Utils.getRandomNumberInRange(MIN_NUMBER_5, MAX_NUMBER_10);
-            char randomOperation = getRandomOperation();
+            int randomNumberOfIndex = Utils.getRandomNumberInRange(MIN_NUMBER_1, Math.min(MAX_NUMBER_9, lengthOfProgression - 1));
 
-            int[] progression = generateProgression(beginNumber, step, lengthOfProgression, randomOperation);
+            int[] progression = generateProgression(beginNumber, step, lengthOfProgression);
             String[] array = generateProgressionWithHiddenElement(progression, randomNumberOfIndex);
-            int changedElement;
-
-            if (randomOperation == '-') {
-                changedElement = progression[randomNumberOfIndex - 1] - step;
-            } else {
-                changedElement = progression[randomNumberOfIndex - 1] + step;
-            }
+            int changedElement = progression[randomNumberOfIndex];
             String stringChangedElement = Integer.toString(changedElement);
 
             gameData[i][0] = String.join(" ", array);
